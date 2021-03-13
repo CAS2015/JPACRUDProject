@@ -16,34 +16,34 @@ CREATE SCHEMA IF NOT EXISTS `diverlogdb` DEFAULT CHARACTER SET utf8 ;
 USE `diverlogdb` ;
 
 -- -----------------------------------------------------
--- Table `diver_log`
+-- Table `divelog`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `diver_log` ;
+DROP TABLE IF EXISTS `divelog` ;
 
-CREATE TABLE IF NOT EXISTS `diver_log` (
+CREATE TABLE IF NOT EXISTS `divelog` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `location` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 SET SQL_MODE = '';
-DROP USER IF EXISTS diveruser@localhost;
+DROP USER IF EXISTS diver@localhost;
 SET SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-CREATE USER 'diveruser'@'localhost' IDENTIFIED BY 'diveruser';
+CREATE USER 'diver'@'localhost' IDENTIFIED BY 'diver';
 
-GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE * TO 'diveruser'@'localhost';
+GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE * TO 'diver'@'localhost';
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
--- Data for table `diver_log`
+-- Data for table `divelog`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `diverlogdb`;
-INSERT INTO `diver_log` (`id`, `location`) VALUES (1, 'Dutch Springs');
-INSERT INTO `diver_log` (`id`, `location`) VALUES (2, 'Dutch Springs');
+INSERT INTO `divelog` (`id`, `location`) VALUES (1, 'Dutch Springs');
+INSERT INTO `divelog` (`id`, `location`) VALUES (2, 'Dutch Springs');
 
 COMMIT;
 
