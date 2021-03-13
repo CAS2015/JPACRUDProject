@@ -9,7 +9,7 @@
     </provider>
 
 <!-- entities -->
-<class>com.skilldistillery.diverlog.entities.DiveLog</class>
+<class>com.skilldistillery.diverlog.entities.Dive</class>
 
 <!-- entities -->
 

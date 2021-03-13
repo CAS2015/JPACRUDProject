@@ -12,17 +12,31 @@
 
 <h2>Chelsey's Dive Log</h2>
 
-<form action="getDiveLog.do" method="GET">
+<form action="filterDives.do" method="GET">
 <!-- <div class="container"> -->
 <div class="row">
-<div class="col-md-1">
- Filter:
+<div>
+<h5>Filter:</h5> 
 </div>
-<div class="col-md-2">
+<div>
+<input type="submit" value="Filter Logs" />
+</div>
+</div>
+<div class="row">
+<div>
   Id: <input type="text" name="id" size="5" />
 </div>
-<div class="col-md-1">
-<input type="submit" value="Filter Logs" />
+<div>
+  Location: <input type="text" name="location" size="10" />
+</div>
+<div>
+  Country: <input type="text" name="country" size="10" />
+</div>
+<div>
+  Notes: <input type="text" name="keyword" size="10" />
+</div>
+<div>
+ Rating: <input type="text" name="rating" size="5" />
 </div>
 </div>
 
@@ -34,7 +48,7 @@
 <tr>
 	<th>Dive #</th>
 	<th>Location</th>
-	<th>Country (TODO)</th>
+	<th>Country</th>
 </tr>
 </thead>
 <c:forEach items = "${LogList}" var = "log">
@@ -44,7 +58,7 @@
 <a href="getLogDetails.do?id=${log.id}">${log.location }</a>
 </td>
 <td>
-	TBD
+	${log.country }
 </td>
 </tr>
 </c:forEach>

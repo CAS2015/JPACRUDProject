@@ -16,7 +16,7 @@
 <tr>
 	<th>Dive #</th>
 	<th>Location</th>
-	<th>Country (TODO)</th>
+	<th>Country</th>
 </tr>
 </thead>
 <tr>
@@ -25,7 +25,7 @@
 ${log.location }
 </td>
 <td>
-	TBD
+	${log.country }
 </td>
 </tr>
 </table>

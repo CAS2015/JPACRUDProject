@@ -28,4 +28,12 @@ public class DiveLogController {
 		mv.setViewName("details");
 		return mv;
 	}
+	
+	@RequestMapping(path= "filterDives.do")
+	public ModelAndView filterDive(Integer id, String location, String country, String keyword, Integer rating) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("LogList", dao.findFilteredDives(id, location, country, keyword, rating));	
+		mv.setViewName("index");
+		return mv;
+	}
 }
