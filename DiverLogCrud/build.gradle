@@ -19,6 +19,7 @@ dependencies {
 	implementation 'javax.servlet:jstl:1.2'
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
     
+    
     compile group: 'org.hibernate.validator', name: 'hibernate-validator', version:'6.0.16.Final'
     testImplementation('org.glassfish:javax.el:3.0.1-b11')
 

@@ -10,9 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Dive {
@@ -22,8 +25,10 @@ public class Dive {
 	private int id;
 	
 	@PastOrPresent(message="Can't have a date in the future")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate date;
 	
+	@DateTimeFormat(pattern="HH:mm")
 	private LocalTime time;
 	
 	@PositiveOrZero(message="Can't have a negative dive duration")
@@ -31,23 +36,24 @@ public class Dive {
 	
 	@PositiveOrZero(message="Can't have a negative max depth")
 	@Column(name="max_depth")
-	private int maxDepth;
+	private Integer maxDepth;
 	
 	@Column(name="water_temp")
 	private Integer waterTemp;
 	
 	@PositiveOrZero(message="Can't have a negative starting cylinder pressure")
 	@Column(name="start_pressure")
-	private int startPressure;
+	private Integer startPressure;
 	
 	@PositiveOrZero(message="Can't have a negative ending cylinder pressure")
 	@Column(name="end_pressure")
-	private int endPressure;
+	private Integer endPressure;
 	
 	@PositiveOrZero(message="Can't have a negative oxygent percent")
 	@Column(name="oxygen_percent")
 	private Integer oxygen;
 	
+	@NotBlank(message="Must have a location of at least one character")
 	private String location;
 
 	@Column(name="state_province")
@@ -110,11 +116,11 @@ public class Dive {
 		this.duration = duration;
 	}
 
-	public int getMaxDepth() {
+	public Integer getMaxDepth() {
 		return maxDepth;
 	}
 
-	public void setMaxDepth(int maxDepth) {
+	public void setMaxDepth(Integer maxDepth) {
 		this.maxDepth = maxDepth;
 	}
 
@@ -126,19 +132,19 @@ public class Dive {
 		this.waterTemp = waterTemp;
 	}
 
-	public int getStartPressure() {
+	public Integer getStartPressure() {
 		return startPressure;
 	}
 
-	public void setStartPressure(int startPressure) {
+	public void setStartPressure(Integer startPressure) {
 		this.startPressure = startPressure;
 	}
 
-	public int getEndPressure() {
+	public Integer getEndPressure() {
 		return endPressure;
 	}
 
-	public void setEndPressure(int endPressure) {
+	public void setEndPressure(Integer endPressure) {
 		this.endPressure = endPressure;
 	}
 
