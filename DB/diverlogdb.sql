@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `dive` (
 ENGINE = InnoDB;
 
 SET SQL_MODE = '';
-DROP USER IF EXISTS diver@localhost;
+-- DROP USER diver@localhost;
 SET SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 CREATE USER 'diver'@'localhost' IDENTIFIED BY 'diver';
 
@@ -84,4 +84,3 @@ INSERT INTO `dive` (`id`, `date`, `time`, `duration`, `max_depth`, `water_temp`,
 INSERT INTO `dive` (`id`, `date`, `time`, `duration`, `max_depth`, `water_temp`, `start_pressure`, `end_pressure`, `oxygen_percent`, `location`, `state_province`, `country`, `latitude`, `longitude`, `suit`, `rating`, `visibility`, `notes`, `weight`) VALUES (23, '2019-08-07', '13:55:00', 53, 17.5, 30, 200, 60, 21.0, 'Toyah Pakeh Nusa Penida', 'Bali', 'Indonesia', -8.793385, 115.524567, '3 mm full plus 3 mm shortie', 4, 3, 'Ribbon eel, snowflake eel, eel, cubbs, crown of thorns starfish, nudibranch, hawksbill turtle, orangutan crab.', 4);
 
 COMMIT;
-
