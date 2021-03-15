@@ -11,28 +11,23 @@
 	rel="stylesheet"
 	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
 	crossorigin="anonymous">
+<link href="style.css" rel="stylesheet">
 </head>
 <body>
 
-	<h2>Dive Log Details</h2>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Dive #</th>
-				<th>Location</th>
-				<th>Country</th>
-			</tr>
-		</thead>
-		<tr>
-			<td>${dive.id }</td>
-			<td>${dive.location }</td>
-			<td>${dive.country }</td>
-		</tr>
-	</table>
-
+	<div class="cover-image">
+	<div class="cover-txt">
+		Log Details
+	</div>
+	</div>
+	
 
 	<div>
+		<div class="welcome addsectionheader">
 		<h4>Dive Details</h4>
+		</div>
+		<div class="filter addsection">
+		<br>
 		<ul>
 			<li>Dive #: ${dive.id}</li>
 			<li>Date: ${dive.date}</li>
@@ -41,10 +36,14 @@
 			<li>Maximum Depth Reached: ${dive.maxDepth} meters</li>
 			<li>Rating: ${dive.rating}/5</li>
 		</ul>
+		</div>
 	</div>
 	<br>
-	<div>
+	<div class="welcome addsectionheader">
 		<h4>Site Details</h4>
+		</div>
+		<div class="filter addsection">
+		<br>
 		<ul>
 			<li>Dive Site: ${dive.location}</li>
 			<li>State/Province: ${dive.stateProvince}</li>
@@ -53,16 +52,22 @@
 		</ul>
 	</div>
 	<br>
-	<div>
+	<div class="welcome addsectionheader">
 		<h4>Water Details</h4>
+		</div>
+		<div class="filter addsection">
+		<br>
 		<ul>
 			<li>Visibility Rating: ${dive.visibility}/5</li>
 			<li>Water Temperature: ${dive.waterTemp} C</li>
 		</ul>
 	</div>
 	<br>
-	<div>
+		<div class="welcome addsectionheader">
 		<h4>Equipment Details</h4>
+		</div>
+		<div class="filter addsection">
+		<br>
 		<ul>
 			<li>Cylinder Starting Pressure: ${dive.startPressure} bar</li>
 			<li>Cylinder Ending Pressure: ${dive.endPressure} bar</li>
@@ -72,19 +77,22 @@
 		</ul>
 	</div>
 	<br>
-	<div>
+	<div class="welcome addsectionheader">
 		<h4>Notes</h4>
+		</div>
+		<div class="filter addsection">
+		<br>
 		<textarea name="notes" rows="3" cols="80">${dive.notes }</textarea>
 	</div>
-
+	<br>
 	<form action="deleteDive.do?id=${dive.id}" method="POST">
-		<input type="submit" value="Delete" />
+		<input class="button1 addbutton" type="submit" value="Delete" />
 	</form>
 	<form action="updateDiveForm.do?id=${dive.id}" method="POST">
-		<input type="submit" value="Update" />
+		<input class="button1 addbutton" type="submit" value="Update" />
 	</form>
 	<form action="home.do">
-		<input type="submit" value="Return Home" />
+		<input class="button1 addbutton" type="submit" value="Return Home" />
 	</form>
 
 </body>

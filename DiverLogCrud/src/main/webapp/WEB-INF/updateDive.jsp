@@ -11,15 +11,24 @@
 	rel="stylesheet"
 	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
 	crossorigin="anonymous">
+<link href="style.css" rel="stylesheet">
 </head>
 <body>
 
-	<h2>Update Dive Log</h2>
+	
+	<div class="cover-image">
+	<div class="cover-txt">
+		Update Dive Log
+	</div>
+	</div>
+
 	
 
 	<form action="updateDive.do" method="POST" id="updateDiveForm">
-		<div>
+		<div class="welcome addsectionheader">
 		<h4>Dive Details</h4>
+		</div>
+		<div class="filter addsection">
 		<b>Date*:</b>
 		<input type="date" pattern="yyyy-MM-dd" name="date" size="10" required="required" value="${dive.date}"/><br> 
 		<b>Time*:</b>
@@ -32,8 +41,10 @@
 		<input type="number" min=1 max=5 name="rating" size="4" value="${dive.rating}"/><br> 
 		</div>
 		<br>
-		<div>
+		<div class="welcome addsectionheader">
 		<h4>Site Details</h4>
+		</div>
+		<div class="filter addsection">
 		<b>Site Name*:</b>
 		<input type="text" name="location" size="10" required="required" value="${dive.location}"/><br> 
 		<b>State/Province:</b>
@@ -46,16 +57,20 @@
 		<input type="number" step="0.0001" name="longitude" size="10" value="${dive.longitude}"/><br> 
 		</div>
 		<br>
-		<div>
+		<div class="welcome addsectionheader">
 		<h4>Water Details</h4>
+		</div>
+		<div class="filter addsection">
 		<b>Visibility (1-5):</b>
 		<input type="number" min=1 max=5 name="visibility" size="4" value="${dive.visibility}"/><br> 
 		<b>Water Temperature (C):</b>
 		<input type="number" name="waterTemp" size="4" value="${dive.waterTemp}"/><br> 
 		</div>
 		<br>
-		<div>
+		<div class="welcome addsectionheader">
 		<h4>Equipment Details</h4>
+		</div>
+		<div class="filter addsection">
 		<b>Cylinder Starting Pressure (bar):</b>
 		<input type="number" name="startPressure" size="4" value="${dive.startPressure}"/><br> 
 		<b>Cylinder Ending Pressure (bar):</b>
@@ -68,18 +83,20 @@
 		<input type="number" name="weight" size="4" value="${dive.weight}"/><br> 
 		</div>
 		<br>
-		<div>
+		<div class="welcome addsectionheader">
 		<h4>Notes</h4>
+		</div>
+		<div class="filter addsection">
 		<textarea name="notes" form="updateDiveForm" rows="3" cols="80" >${dive.notes }</textarea>
 		</div>
-
-		<br>
+		<p class="requirednote">
 		*Required Field
-		<br>
+		</p>
+
 		
 		<input type="hidden" name="id" value="${dive.id}">
 		
-		<input type="submit" value="Update Dive" />
+		<input class="button1 addbutton" type="submit" value="Update Dive" />
 	</form>
 
 </body>

@@ -11,10 +11,13 @@
 	rel="stylesheet"
 	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
 	crossorigin="anonymous">
+<link href="style.css" rel="stylesheet">
 </head>
 <body>
 
-	<h2>Chelsey's Dive Log</h2>
+	<div class="cover-image">
+		<div class="cover-txt">Dive Log</div>
+	</div>
 
 
 
@@ -22,10 +25,11 @@
 
 		<c:when test="${added == true }">
 			<c:choose>
-
 				<c:when test="${! empty dive }">
-					New dive successfully added!
-					<table class="table">
+					<div class="welcome">
+						<h2>New dive successfully added!</h2>
+					</div>
+					<table class="table filtertable">
 						<thead>
 							<tr>
 								<th>Dive #</th>
@@ -38,24 +42,32 @@
 							<td><a href="getLogDetails.do?id=${dive.id}">${dive.location }
 									- ${dive.stateProvince }, ${dive.country }</a></td>
 							<td>
-								<form action="deleteDive.do?id=${dive.id}" method="POST">
-									<input type="submit" value="Delete" />
-								</form>
-								<form action="updateDiveForm.do?id=${dive.id}" method="POST">
-									<input type="submit" value="Update" />
-								</form>
+								<div class="buttoncontainer">
+									<div class="col">
+										<form action="deleteDive.do?id=${dive.id}" method="POST">
+											<input class="button1" type="submit" value="Delete" />
+										</form>
+									</div>
+									<div class="col">
+										<form action="updateDiveForm.do?id=${dive.id}" method="POST">
+											<input class="button1" type="submit" value="Update" />
+										</form>
+									</div>
+								</div>
 							</td>
 						</tr>
 					</table>
 					<form action="home.do">
-						<input type="submit" value="Return Home" />
+						<input class="button1 addbutton" type="submit" value="Return Home" />
 					</form>
 				</c:when>
 
 				<c:otherwise>
-					Error adding record. Dive was not added.
+					<div class="welcome">
+						<h2>Error adding record. Dive was not added.</h2>
+					</div>
 					<form action="home.do">
-						<input type="submit" value="Return Home" />
+						<input class="button1 addbutton" type="submit" value="Return Home" />
 					</form>
 				</c:otherwise>
 
@@ -66,8 +78,10 @@
 			<c:choose>
 
 				<c:when test="${! empty dive }">
-					Dive successfully updated!
-					<table class="table">
+				<div class="welcome">
+						<h2>Dive successfully updated!</h2>
+				</div>
+					<table class="table filtertable">
 						<thead>
 							<tr>
 								<th>Dive #</th>
@@ -80,24 +94,32 @@
 							<td><a href="getLogDetails.do?id=${dive.id}">${dive.location }
 									- ${dive.stateProvince }, ${dive.country }</a></td>
 							<td>
+							<div class="buttoncontainer">
+								<div class="col">
 								<form action="deleteDive.do?id=${dive.id}" method="POST">
-									<input type="submit" value="Delete" />
+									<input class="button1" type="submit" value="Delete" />
 								</form>
+								</div>
+								<div class="col">
 								<form action="updateDiveForm.do?id=${dive.id}" method="POST">
-									<input type="submit" value="Update" />
+									<input class="button1" type="submit" value="Update" />
 								</form>
+								</div>
+								</div>
 							</td>
 						</tr>
 					</table>
 					<form action="home.do">
-						<input type="submit" value="Return Home" />
+						<input class="button1 addbutton" type="submit" value="Return Home" />
 					</form>
 				</c:when>
 
 				<c:otherwise>
-					Error updating record. Dive was not updated.
+				<div class="welcome">
+						<h2>Error updating record. Dive was not updated.</h2>
+				</div>
 					<form action="home.do">
-						<input type="submit" value="Return Home" />
+						<input class="button1 addbutton" type="submit" value="Return Home" />
 					</form>
 				</c:otherwise>
 
@@ -108,16 +130,20 @@
 			<c:choose>
 
 				<c:when test="${success == true }">
-					Dive successfully deleted!
+				<div class="welcome">
+						<h2>Dive successfully deleted!</h2>
+				</div>
 					<form action="home.do">
-						<input type="submit" value="Return Home" />
+						<input class="button1 addbutton" type="submit" value="Return Home" />
 					</form>
 				</c:when>
 
 				<c:otherwise>
-					Error deleting record. Dive was not deleted.
+				<div class="welcome">
+						<h2>Error deleting record. Dive was not deleted.</h2>
+				</div>
 					<form action="home.do">
-						<input type="submit" value="Return Home" />
+						<input class="button1 addbutton" type="submit" value="Return Home" />
 					</form>
 				</c:otherwise>
 
@@ -125,66 +151,86 @@
 		</c:when>
 
 		<c:otherwise>
-			<div class="fluid-container">
-						<form action="addDiveForm.do">
-							<input type="submit" value="Add New Dive" />
-						</form>
+			<div class="welcome">
+				<h1>Welcome!</h1>
+				<p>This is a scuba diving log that tracks relevant information
+					about a dive including the site conditions, water conditions,
+					equipment and notes about the fun things seen while under water.
+					I've populated the database with my dives to start but the form is
+					open to add new dives, update dives or delete dives. You can also
+					search dives through several filters in any combination including a
+					notes filter where you can type "turtle" or "lionfish" to see where
+					I've encountered some fun creatures.</p>
+			</div>
+			<div class="welcome welcomebutton">
+				<form action="addDiveForm.do">
+					<input class="button1" type="submit" value="Add New Dive" />
+				</form>
+			</div>
+			<div class="fluid-container filter">
 				<form action="filterDives.do" method="GET">
 					<div class="row">
-						<div>
-							<h5>Filter:</h5>
-						</div>
-						<div>
-							<input type="submit" value="Search Logs" />
+						<div class="col filterheadercol">
+							<h4>Filter</h4>
+							<input class="button1 searchbutton" type="submit"
+								value="Search Logs" />
 						</div>
 					</div>
 
 
 					<div class="row">
-						<div>
-							Id: <input type="text" name="id" size="5" />
+						<div class="col filtercol">
+							Dive Id: <input class="filterbox" type="text" name="id" />
 						</div>
-						<div>
-							Dive Site: <input type="text" name="location" size="10" />
+						<div class="col filtercol">
+							Dive Site: <input class="filterbox" type="text" name="location" />
 						</div>
-						<div>
-							State/Province: <input type="text" name="stateProvince" size="10" />
+						<div class="col filtercol">
+							Province: <input class="filterbox" type="text"
+								name="stateProvince" />
 						</div>
-						<div>
-							Country: <input type="text" name="country" size="10" />
+						<div class="col filtercol">
+							Country: <input class="filterbox" type="text" name="country" />
 						</div>
-						<div>
-							Notes: <input type="text" name="keyword" size="10" />
+						<div class="col filtercol">
+							Notes: <input class="filterbox" type="text" name="keyword" />
 						</div>
-						<div>
-							Rating: <input type="text" name="rating" size="5" />
+						<div class="col filtercol">
+							Rating: <input class="filterbox" type="text" name="rating" />
 						</div>
 					</div>
 				</form>
 			</div>
+
 			<c:choose>
 
 				<c:when test="${! empty logList}">
-					<table class="table">
+					<table class="table filtertable">
 						<thead>
 							<tr>
 								<th>Dive #</th>
-								<th>Location (Dive Site - State/Province, Country)</th>
+								<th>Location (Dive Site - Province, Country)</th>
 								<th>Actions</th>
 							</tr>
 						</thead>
 						<c:forEach items="${logList}" var="log">
-							<tr>
+							<tr class="tablerow">
 								<td>${log.id }</td>
 								<td><a href="getLogDetails.do?id=${log.id}">${log.location }
 										- ${log.stateProvince }, ${log.country }</a></td>
 								<td>
-									<form action="deleteDive.do?id=${log.id}" method="POST">
-										<input type="submit" value="Delete" />
-									</form>
-									<form action="updateDiveForm.do?id=${log.id}" method="POST">
-										<input type="submit" value="Update" />
-									</form>
+									<div class="buttoncontainer">
+										<div class="col">
+											<form action="deleteDive.do?id=${log.id}" method="POST">
+												<input class="button1" type="submit" value="Delete" />
+											</form>
+										</div>
+										<div class="col">
+											<form action="updateDiveForm.do?id=${log.id}" method="POST">
+												<input class="button1" type="submit" value="Update" />
+											</form>
+										</div>
+									</div>
 								</td>
 							</tr>
 						</c:forEach>
@@ -192,9 +238,11 @@
 				</c:when>
 
 				<c:otherwise>
+					<p class="requirednote errornote">
 					Record not found. Try filtering with a broader search or return home for full list of dives.
+					</p>
 					<form action="home.do">
-						<input type="submit" value="Return Home" />
+						<input class="button1 addbutton" type="submit" value="Return Home" />
 					</form>
 				</c:otherwise>
 

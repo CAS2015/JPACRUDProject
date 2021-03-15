@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
 
@@ -24,7 +23,6 @@ public class Dive {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@PastOrPresent(message="Can't have a date in the future")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate date;
 	
