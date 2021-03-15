@@ -40,9 +40,9 @@ can see all of the details related to the dive log.
 For this project I lost some time messing with the time and date formats,
 trying to get a library that would work to translate the form format to the
 database format. I can definitely see where temporal data, especially with
-different browsers could get frustrating. If I had more time, I definitely
-would've liked to do more on the front end side of things, including pagination
-and an overall better design for the pages. I also would've really liked to
-add some aggregate functions to show my total number of dives per state/province
-or country as well as the average rating but I just didn't have time to write
-another results page for the data. 
+different browsers could get frustrating. If I had more time, I would've liked
+to do more on the front end side of things, including adding pagination to the
+table on the landing page and an overall better design for the pages. I also
+would've really liked to add some aggregate functions to show my total number of
+dives per state/province or country as well as the average rating but I just
+didn't have time to write another results page for the data. 
