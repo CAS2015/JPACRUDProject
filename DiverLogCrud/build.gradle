@@ -4,6 +4,15 @@ plugins {
 	id 'java'
 }
 
+apply plugin: 'war'
+war {
+  enabled = true
+  // Gradle will replace the variable baseName
+  // with our app name, as defined in settings.gradle
+  archiveName = "${baseName}.war"
+  destinationDir = file("../")         // Project root directory
+}
+
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
@@ -19,7 +28,9 @@ dependencies {
 	implementation 'javax.servlet:jstl:1.2'
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
     
+    implementation ('org.springframework.boot:spring-boot-starter-tomcat')
     
+ 
     compile group: 'org.hibernate.validator', name: 'hibernate-validator', version:'6.0.16.Final'
     testImplementation('org.glassfish:javax.el:3.0.1-b11')
 

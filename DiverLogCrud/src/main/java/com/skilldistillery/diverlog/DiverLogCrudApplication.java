@@ -2,12 +2,17 @@ package com.skilldistillery.diverlog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class DiverLogCrudApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(DiverLogCrudApplication.class, args);
+public class DiverLogCrudApplication extends SpringBootServletInitializer {
+	  @Override
+	  protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+	    return application.sources(DiverLogCrudApplication.class);
+	  }
+	  public static void main(String[] args) {
+	    SpringApplication.run(DiverLogCrudApplication.class, args);
+	  }
 	}
 
-}
